@@ -1,0 +1,16 @@
+fetch("https://www.ssense.com/en-us/api/shopping-bag/202020M20501302", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "en-US,en;q=0.9",
+    "content-type": "application/json",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "cookie": "__cfduid=d7a50742058556d90d9b5c3e85a5762b01605007413; _pxhd=42f2fc83f4feba2cf710f2424c97ccea4f098c7061454cde7277f89b6808fea8:2af74371-2347-11eb-b512-d75c5b5f23d0; gdprCountry=false; visitorId=316a3070f2bfe1a67e20c6a98bff7edddb9b2ddbd3aa6fde1ae92f7145230277; forcedCountry=US; preferredLanguage=en; is_fit_predictor_enabled=full; is_new_stock_remaining_v2=new; is_new_trending_enabled=trendingV2; sid=c2900f43a6b84056056803a4b541c0a6; lang=en_US; country=US; shopping_bag=5faa78373076b39992a76e64; __zlcmid=116jZhkB3BXhaDk; SSP_AB_fitpredictor=test2; isp=comcast cable communications llc; _sp_ses.c6c8=*; _sp_id.c6c8=9b2d9cfd-0dc4-4cf9-a01a-ad5cdcfef143.1605007415.3.1605071900.1605066433.2209d66a-68c0-4884-8815-0889d209ae5d"
+  },
+  "referrer": "https://www.ssense.com/en-us/men/product/marine-serre/white-and-black-lizard-turtleneck/5894881",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "{\"sku\":\"202020M20501302\",\"serviceType\":\"product-details\",\"userId\":null}",
+  "method": "POST",
+  "mode": "cors"
+});

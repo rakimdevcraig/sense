@@ -1,0 +1,19 @@
+fetch("https://cart.store-services.microsoft.com/cart/v1.0/reco/getCartRecommendations?cartType=consumer&appId=storeCart", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-US,en;q=0.9",
+    "content-type": "application/json",
+    "ms-cv": "8j8SmPE0v0eGFtdu.0.1",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "x-authorization-muid": "189C804E244B62F509CF8F3125B663CC",
+    "x-ms-correlation-id": "4dc87d58-9dc2-445c-9b24-58c9550b3efb",
+    "x-ms-tracking-id": "18d60a6a-0de2-420a-a4ee-a8316228bf87"
+  },
+  "referrer": "https://www.microsoft.com/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "{\"market\":\"US\",\"locale\":\"en-US\",\"catalogClientType\":\"storeWeb\",\"clientType\":\"UniversalWebStore.Cart\",\"itemTypes\":\"devices\",\"count\":16,\"seedItems\":[{\"id\":\"8T2D538WC7MN\",\"skuId\":\"8201\",\"itemType\":\"Devices\"}],\"flights\":[\"sc_multiplesubscriptions\",\"sc_promocodefeature-web-desktop\",\"sc_promocode\",\"sc_cartbasedeligibility\",\"sc_rspv2\",\"sc_railv2\",\"sc_eligibilityapi\",\"sc_surfaceterms\",\"sc_focusforall\",\"sc_loginav\",\"sc_newwarrantyterms\",\"sc_subupgrade\",\"sc_defaultbillingcountry\",\"sc_xdlshipbuffer\",\"sc_extendPageTagToOverride\",\"sc_delauth\",\"sc_extrabankdisclaimer\",\"sc_officebeta\",\"sc_psd2challenge\",\"sc_enableccsmd\",\"sc_caseinsensitivelocalefix\",\"sc_errorpageviewfix\",\"sc_collapsibletext\",\"sc_preparecheckoutperf\",\"sc_skutitle\",\"sc_productlegaltermsv1\",\"sc_mwfbuynow\",\"sc_readymessagemark\",\"sc_requestretry\",\"sc_hipercard\",\"sc_newphm\",\"sc_subscriptioncanceldisclaimer\",\"sc_parsepostdata\",\"sc_lazydowngradefix\",\"sc_scdsmemcache\",\"sc_openurlpostmessage\",\"sc_addresstitle\",\"sc_nextpidl\",\"sc_ultimateupgrademessagev2\",\"sc_removesetpaymentmethodapi\",\"sc_addsitename\",\"sc_enotaterms\",\"sc_pidlhandleofficeterms\",\"sc_ordercheckoutfix\",\"sc_logzipcodeinfo\",\"sc_purchasecalladdaddress\",\"sc_increasepurchasetimeout\",\"sc_newbankdisclaimer\",\"sc_psd2fullscreen\",\"sc_dimeheader\",\"sc_lognyregioninfo\",\"sc_enablezipplusfour\",\"sc_loadtestheadersenabled\",\"sc_eaplayupgrade\",\"sc_inpageredirectenabled\",\"sc_autorenewalconsent\",\"sc_contactpreference\",\"sc_newsupportphonenumber\",\"sc_removeomex\",\"sc_filtersoldtoaddress\",\"sc_setpaymentmethodfix\",\"sc_lazydowngrade\",\"sc_handlepurchaseblocked\",\"sc_previewultimate\",\"sc_removelabel\",\"sc_contextpreparecheckout\",\"sc_singleaddressdefault\",\"sc_validatepionattachfailed\",\"sc_warrantytermsforbusiness\",\"sc_productlegaltermsv1cart\"]}",
+  "method": "PUT",
+  "mode": "cors"
+});

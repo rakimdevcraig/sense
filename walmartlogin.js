@@ -1,5 +1,6 @@
 var rp = require('request-promise');
 
+
 var options = {
     method: 'POST',
     uri: 'https://www.walmart.com/p13n/v1/walmart/postaddtocart/content',
@@ -19,41 +20,7 @@ var options = {
     },
     "referrer": "https://www.walmart.com/pac?id=8af79225-9981-42d2-8971-6d831c3872c2&quantity=1&cv=7",
     "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": {
-        "reqId": "15c06f77-007-175cd704aaa3c0",
-        "inflateContent": true,
-        "modules": [
-            {
-                "moduleId": "99e6267e-07f0-4a7e-a9e2-b70594722ae6",
-                "moduleType": "DefaultCarousel",
-                "zone": "contentZone3"
-            }
-        ],
-        "userReqInfo": {
-            "cartContext": {
-                "items": [
-                    {
-                        "id": "436204236",
-                        "price": 289.99,
-                        "pcp": "0:2636:1224908:1224995",
-                        "rhPath": "20000:26000:26005:26170:26775",
-                        "isNextDayEligible": false
-                    }
-                ],
-                "threshold": {
-                    "balanceToThreshold": 0,
-                    "thresholdType": "FreeShipping"
-                }
-            }
-        },
-        "userClientInfo": {
-            "deviceType": "desktop",
-            "ipAddress": "IP=0:0:0:0:0:0:0:1-0:0:0:0:0:0:0:1",
-            "callType": "CLIENT",
-            "zipCode": "02122",
-            "isZipLocated": true
-        }
-    },
+    "body": { "reqId": "15c06f77-007-175cd704aaa3c0", "inflateContent": true, "modules": [{ "moduleId": "99e6267e-07f0-4a7e-a9e2-b70594722ae6", "moduleType": "DefaultCarousel", "zone": "contentZone3" }], "userReqInfo": { "cartContext": { "items": [{ "id": "436204236", "price": 289.99, "pcp": "0:2636:1224908:1224995", "rhPath": "20000:26000:26005:26170:26775", "isNextDayEligible": false }], "threshold": { "balanceToThreshold": 0, "thresholdType": "FreeShipping" } } }, "userClientInfo": { "deviceType": "desktop", "ipAddress": "IP=0:0:0:0:0:0:0:1-0:0:0:0:0:0:0:1", "callType": "CLIENT", "zipCode": "02122", "isZipLocated": true } },
     mode: "cors",
     json: true // Automatically stringifies the body to JSON
 };

@@ -1,9 +1,17 @@
+
+//For offer ID:
+//go to product page and open network tabs
+//click contenr tab
+//open modules all the way up until I see the "offer ID which is what I need to make a post"
+// in the headers section I have to grab the referrers link
 var rp = require('request-promise');
 
-//add item to cart
-//click checkout
-//click "shipping address request"
-//the url in the uri is the one that I want to make my post request to
+// add item to cart
+// click checkout
+// click "shipping address request"
+// the url in the uri is the one that I want to make my post request to
+
+// function addToCart() {
 var options = {
     "method": 'POST',
     "uri": 'https://www.walmart.com/api/v3/cart/guest/0881a3c9-7bea-4af8-966b-53e0e60f9529/items',
@@ -25,19 +33,53 @@ var options = {
     json: true
 
 };
-
 rp(options)
+    // .then(parsedBody => parsedBody.json())
+    // .then(data => console.log(data));
     .then(function (parsedBody) {
-        console.log('success', parsedBody.statusCode)
+        // console.log(parsedBody.statusCode)
+
     })
     .catch(function (err) {
         console.log('error', err)
     });
 
-//For offer ID:
-//go to product page and open network tabs
-//click contenr tab
-//open modules all the way up until I see the "offer ID which is what I need to make a post"
-// in the headers section I have to grab the referrers link
 
+// function checkoutCart() {
+//     var options = {
+//         "method": 'POST',
+//         "uri": 'https://www.walmart.com/api/checkout/v3/contract',
+//         "headers": {
+//             "accept": "application/json",
+//             "accept-encoding": "gzip, deflate, br",
+//             "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+//             "content-type": "application/json",
+//             "origin": "https://www.walmart.com",
+//             "referer": "https://www.walmart.com/checkout/",
+//             "wm_vertical_id": "0",
+//             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36"
+//         },
+//         "body": {
+//             //all of the info past "isZipLocated comes from the cookie"
+//             // "postalCode": "02119", "city": "Roxbury", "state": "MA", "isZipLocated": true, 
+//             "crt:CRT": "be22a646-de5a-483f-b6b2-6e3c4a5a7fe5", "customerId:CID": "0881a3c9-7bea-4af8-966b-53e0e60f9529", "customerType:type": "REGISTERED", "affiliateInfo:com.wm.reflector": "reflectorid:0000000000000000000000@lastupd:1605804196383@firstcreate:1605781527724"
+//         },
+//         mode: "cors",
+//         resolveWithFullResponse: true,
+//         json: true
+
+//     };
+
+//     rp(options)
+//         .then(function (parsedBody) {
+//             console.log('success', parsedBody.statusCode)
+//         })
+//         .catch(function (err) {
+//             console.log('error', err)
+//         });
+// }
+
+
+// addToCart()
+// checkoutCart()
 

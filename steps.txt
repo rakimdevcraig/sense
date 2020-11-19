@@ -1,0 +1,2 @@
+add a product to cart, take the body and then look at the cart link and post to that cart link
+add a product to cart then take that body and make a post to the cart link

@@ -1,0 +1,36 @@
+How to find offerID:
+found inside of the content tab 
+go to preview tab open up modules
+open 0
+open moduleresponse
+open 0
+open items
+offerID
+
+Referer:
+Go under content tab and into headers
+go down to "referer"
+
+How to find info about individual product:
+click the tempo?tenant=Walmart.com tab
+under headers go down to "p13n"
+inside of that I can see: Item availability(which I can use for a monitor), 
+productName & pageID(which make up each page) page=walmart.com/ip/productName/pageID
+
+CID:can find in the cookie in the checkout after you choose the first option for delivery before 
+you confirm your delivery address
+go into network and click "shipping address" tab 
+in "headers" go down to cookie and look through the cookie until i find the "CID"
+wherever I need to plug in the :CID remove the entire ":CID" even the colon and put in my CID
+
+
+Links:
+Shipping address:https://www.walmart.com/api/checkout-customer/:CID/shipping-address
+Credit Card: https://www.walmart.com/api/checkout-customer/:CID/credit-card
+Shopping Cart: https://www.walmart.com/api/checkout/v3/contract/:PCID?page=CHECKOUT_VIEW
+
+credit card generator:https://cardguru.io/
+
+
+Need******
+Need to document how I came up with each endpoint

@@ -1,9 +1,7 @@
 var rp = require('request-promise');
-const tough = require('tough-cookie');
 
 //will store all of the cookies for each request to use
 let cookieJar2 = rp.jar();
-// console.log('before request', cookieJar2)
 
 
 // function walmart() {
@@ -33,16 +31,16 @@ function addToCart() {
             "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
             "content-type": "application/json",
             "origin": "https://www.walmart.com",
-            // "referer": "https://www.walmart.com/ip/Exquisite-Gaming-Cable-Guy-Charging-Controller-and-Device-Holder-Marvel-Deadpool-8/913038699",
-            "referer": "https://www.walmart.com/ip/Xbox-Wireless-Controller-Carbon-Black/752722058",
+            "referer": "https://www.walmart.com/ip/Exquisite-Gaming-Cable-Guy-Charging-Controller-and-Device-Holder-Marvel-Deadpool-8/913038699",
+            // "referer": "https://www.walmart.com/ip/Xbox-Wireless-Controller-Carbon-Black/752722058",
             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36"
         },
         "body": {
             'quantity': 1,
-            'offerId': "3023DA9271544F98BD1A0D254F564C46"
-            // "offerId": "F0713C1F22EF4F2993649B0AB3568CF4"
+            // 'offerId': "3023DA9271544F98BD1A0D254F564C46" //xbox controller
+            "offerId": "F0713C1F22EF4F2993649B0AB3568CF4"
         },
-        resolveWithFullResponse: true,
+        // resolveWithFullResponse: true,
         gzip: true,
         mode: "cors",
         jar: cookieJar2,
@@ -51,10 +49,9 @@ function addToCart() {
     };
     rp(options)
         .then(function (response) {
-            console.log('ADDED TO CART',) //response)
+            console.log('ITEM ADDED TO CART',) //response)
             // console.log(response.statusCode)
             checkoutCart()
-            // console.log(cookieJar2)
         })
         .catch(function (err) {
             console.log('error', err)
@@ -76,7 +73,7 @@ function checkoutCart() {
             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36"
         },
         "body": {
-            //all of the info past "isZipLocated comes from the cookie"
+            //first 3 comes from the cookie"
             "crt:CRT": "be22a646-de5a-483f-b6b2-6e3c4a5a7fe5", //needed
             "customerId:CID": "0881a3c9-7bea-4af8-966b-53e0e60f9529", //needed
             "customerType:type": "CUSTOMER", // needed
@@ -87,7 +84,6 @@ function checkoutCart() {
             // "com.wm.reflector": "" // not needed
         },
         mode: "cors",
-        // resolveWithFullResponse: true,
         json: true,
         jar: cookieJar2,
         gzip: true
@@ -98,7 +94,7 @@ function checkoutCart() {
         .then(function (response) {
             let id = response.items[0].id
             console.log('CART CHECKED OUT',)
-            console.log(response.items[0])
+            console.log("ID that we're using", id)
             submitShippingMETHOD(id)
         })
         .catch(function (err) {
@@ -122,7 +118,9 @@ function submitShippingMETHOD(id) {
         },
         "body":
         {
-            "groups": [{ "fulfillmentOption": "S2H", "itemIds": [`${id}`], "shipMethod": "STANDARD" }]
+            //if the total price is over $35 then shipping must be expedited if it's under $35 shipping must be standard
+            "groups": [{ "fulfillmentOption": "S2H", "itemIds": [`${id}`], "shipMethod": "EXPEDITED" }]
+            // "groups": [{ "fulfillmentOption": "S2H", "itemIds": [`${id}`], "shipMethod": "STANDARD" }]
         },
         gzip: true,
         mode: "cors",
@@ -132,7 +130,7 @@ function submitShippingMETHOD(id) {
     rp(options)
         .then(function (response) {
             // submitShippingAddress()
-            console.log('Shipping Method Submitted',)// response)
+            console.log('SHIPPING METHOD SUBMITTED',)// response)
 
         })
         .catch(function (err) {

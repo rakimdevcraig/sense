@@ -12,3 +12,17 @@ have to find it in the cookies and save it as a variable so that it can be used 
 for all of the customer data I need such as credit card number, address, email etc I can put all of those into a txt file and have my bot read from the text
 file or put those fields into the bot and have the user input their information because maybe that might have the bot run faster (have to ask mark)
 
+make conditional for "shippingMethod" where if item is over $35 i choose expedited because there's free expedited
+shipping for items over $35 and standard shipping for items under $35
+
+Make sure my messages in the console detailing each step are clear if I need to
+I can use response.statuscode to see what the status code is to design me message
+
+In the checkoutCart request I need to make it so that CRT,customerID and customer type
+come dynamically from the cookie and not me manually putting that in because if I 
+let others use this they wont be able to manually put that in I need to get it 
+from the cookie
+
+Once I get the bot working figure out how to incorporate a proxy and how to do tasks 
+so I can get the same program to run as many times as I want which would allow me to
+buy multiple consoles

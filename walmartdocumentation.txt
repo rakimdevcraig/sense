@@ -1,4 +1,5 @@
 How to find offerID:
+At the page of the item you want the offerID for:
 found inside of the content tab 
 go to preview tab open up modules
 open 0
@@ -30,6 +31,12 @@ Credit Card: https://www.walmart.com/api/checkout-customer/:CID/credit-card
 Shopping Cart: https://www.walmart.com/api/checkout/v3/contract/:PCID?page=CHECKOUT_VIEW
 
 credit card generator:https://cardguru.io/
+
+                    ***Shipping Method Rule****
+if item is over $35 in the body of the submitShippingMethod function I have to 
+make "shipMethod" "EXPEDITED" because walmart offers free expedited shipping for all 
+orders over $35 and if the order is less I have to make "shipMethod" "STANDARD"
+
 
 
 Need******

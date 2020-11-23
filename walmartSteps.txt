@@ -1,0 +1,20 @@
+Steps while logged in
+post to https://www.walmart.com/api/v3/cart/guest/:CID/items
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID?page=CHECKOUT_VIEW
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/fulfillment
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/shipping-address
+
+post to https://www.walmart.com/api/checkout-customer/:CID/credit-card
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/payment
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/order
+
+
+As A Guest:
+post to https://www.walmart.com/api/v3/cart/guest/:CID/items
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID?page=CHECKOUT_VIEW

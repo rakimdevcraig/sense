@@ -1,9 +1,3 @@
-
-//For offer ID:
-//go to product page and open network tabs
-//click contenr tab
-//open modules all the way up until I see the "offer ID which is what I need to make a post"
-// in the headers section I have to grab the referrers link
 var rp = require('request-promise');
 const tough = require('tough-cookie');
 
@@ -11,22 +5,17 @@ const tough = require('tough-cookie');
 let cookieJar2 = rp.jar();
 // console.log('before request', cookieJar2)
 
-// add item to cart
-// click checkout
-// click "shipping address request"
-// the url in the uri is the one that I want to make my post request to
-
 
 // function walmart() {
 //     var options = {
-//         uri: 'https://walmart.com',
+//         uri: 'https://www.walmart.com/ip/XB1-Xbox-Series-X/443574645',
 //         jar: cookieJar2,
 //         // json: true 
 //     };
 
 //     rp(options)
 //         .then(function (response) {
-//             console.log('COOKIES from 1st request', cookieJar2)
+//             console.log('1st request')
 //             addToCart()
 //         })
 //         .catch(function (err) {
@@ -44,12 +33,14 @@ function addToCart() {
             "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
             "content-type": "application/json",
             "origin": "https://www.walmart.com",
+            // "referer": "https://www.walmart.com/ip/Exquisite-Gaming-Cable-Guy-Charging-Controller-and-Device-Holder-Marvel-Deadpool-8/913038699",
             "referer": "https://www.walmart.com/ip/Xbox-Wireless-Controller-Carbon-Black/752722058",
             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36"
         },
         "body": {
             'quantity': 1,
             'offerId': "3023DA9271544F98BD1A0D254F564C46"
+            // "offerId": "F0713C1F22EF4F2993649B0AB3568CF4"
         },
         resolveWithFullResponse: true,
         gzip: true,
@@ -60,7 +51,7 @@ function addToCart() {
     };
     rp(options)
         .then(function (response) {
-            console.log('ADDED TO CART', response)
+            console.log('ADDED TO CART',) //response)
             // console.log(response.statusCode)
             checkoutCart()
             // console.log(cookieJar2)
@@ -105,15 +96,17 @@ function checkoutCart() {
 
     rp(options)
         .then(function (response) {
-            console.log('CART CHECKED OUT', response)
-            submitShippingMETHOD()
+            let id = response.items[0].id
+            console.log('CART CHECKED OUT',)
+            console.log(response.items[0])
+            submitShippingMETHOD(id)
         })
         .catch(function (err) {
             console.log('error', err)
         });
 }
 
-function submitShippingMETHOD() {
+function submitShippingMETHOD(id) {
     var options = {
         "method": 'POST',
         "uri": 'https://www.walmart.com/api/checkout/v3/contract/:PCID/fulfillment',
@@ -125,17 +118,12 @@ function submitShippingMETHOD() {
             "origin": "https://www.walmart.com",
             "referer": "https://www.walmart.com/checkout/",
             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36",
-            "wm_vertical_id": "0"
+            "wm_vertical_id": "0",
         },
         "body":
-            [
-                {
-                    "fulfillmentOption": "S2H",
-                    "itemIds": ["ec312f9a-62ca-4d37-858e-821c1ebced12"],
-                    "shipMethod": "EXPEDITED",
-                }
-            ]
-        ,
+        {
+            "groups": [{ "fulfillmentOption": "S2H", "itemIds": [`${id}`], "shipMethod": "STANDARD" }]
+        },
         gzip: true,
         mode: "cors",
         jar: cookieJar2,
@@ -143,13 +131,29 @@ function submitShippingMETHOD() {
     };
     rp(options)
         .then(function (response) {
-            console.log('Submitted Shipping Method', response)
+            // submitShippingAddress()
+            console.log('Shipping Method Submitted',)// response)
 
         })
         .catch(function (err) {
-            console.log('error', err)
+            console.log('Shipping Method error', err)
         });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function submitShippingAddress() {
     var options = {
@@ -165,21 +169,23 @@ function submitShippingAddress() {
             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36",
             "wm_vertical_id": "0"
         },
-        // "body":
-        // {
-        //     "addressLineOne": "",
-        //     "city":,
-        //     "firstName":,
-        //     "lastName":,
-        //     "phone":,
-        //     "email":,
-        //     "marketingEmailPref": False,
-        //     "postalCode":,
-        //     "state":,
-        //     "countryCode": "USA",
-        //     "addressType": "RESIDENTIAL",
-        //     "changedFields": []
-        // },
+        "body":
+        {
+            "addressLineOne": "111 Codman Park",
+            "addressLineTwo": "",
+            "city": "Roxbury",
+            "firstName": "Rakim",
+            "lastName": "Craig",
+            "phone": "8572664498",
+            "postalCode": "02119",
+            "state": "MA",
+            "addressType": "RESIDENTIAL",
+            "preferenceId": "b1a1aa0d-1de8-4b5a-8f83-6d421bfbf758",
+            "changedFields": []
+            // "countryCode": "USA",
+            // "marketingEmailPref": False,
+            // "email":,
+        },
         gzip: true,
         mode: "cors",
         jar: cookieJar2,
@@ -187,7 +193,7 @@ function submitShippingAddress() {
     };
     rp(options)
         .then(function (response) {
-            console.log('Submitted Shipping Address', response)
+            console.log('Submitted Shipping Address',) //response)
 
         })
         .catch(function (err) {
@@ -195,7 +201,71 @@ function submitShippingAddress() {
         });
 }
 
-addToCart()
+function submitCreditCard() {
+    var options = {
+        "method": 'POST',
+        "uri": 'https://www.walmart.com/api/checkout-customer/:CID/credit-card',
+        "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-encoding": "gzip, deflate, br",
+            "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+            "content-type": "application/json",
+            "origin": "https://www.walmart.com",
+            "referer": "https://www.walmart.com/checkout/",
+            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36",
+            "wm_vertical_id": "0"
+        },
+        "body": {
+            "encryptedPan": "4539409523233505", "encryptedCvv": "981", "integrityCheck": "07ea2f98e889102f", "keyId": "42d11c27", "phase": "0", "state": "MA",
+            "postalCode": "02119", "addressLineOne": "111 Codman Park", "addressLineTwo": "", "city": "Roxbury", "firstName": "Rakim", "lastName": "Craig",
+            "expiryMonth": "10", "expiryYear": "2024", "phone": "6178251616", "cardType": "VISA"
+        },
+        gzip: true,
+        mode: "cors",
+        jar: cookieJar2,
+        json: true
+    };
+    rp(options)
+        .then(function (response) {
+            console.log('Submitted Credit Card Info',) //response)
 
-// checkoutCart()
+        })
+        .catch(function (err) {
+            console.log('Credit Card Info Error', err)
+        });
+}
+
+function placeOrder() {
+    var options = {
+        "method": 'PUT',
+        "uri": 'https://www.walmart.com/api/checkout/v3/contract/:PCID/order',
+        "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-encoding": "gzip, deflate, br",
+            "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+            "content-type": "application/json",
+            "origin": "https://www.walmart.com",
+            "referer": "https://www.walmart.com/checkout/",
+            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.69 Safari/537.36",
+            "wm_vertical_id": "0"
+        },
+        "body": {},
+        gzip: true,
+        mode: "cors",
+        jar: cookieJar2,
+        json: true
+    };
+    rp(options)
+        .then(function (response) {
+            console.log('Submitted Credit Card Info',) //response)
+
+        })
+        .catch(function (err) {
+            console.log('Credit Card Info Error', err)
+        });
+}
+
+
+// walmart()
+addToCart()
 

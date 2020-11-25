@@ -1,0 +1,11 @@
+Adding item to cart:
+With cookies cleared as long as I know my CID i'm able to add an item to cart
+
+To do:
+figure out when and where the CID is generated
+take the CID out of the add to cart link and try to add an item to cart and see what information I get back
+If I have to be logged in to get a CID I have to figure out a way for this bot to automatically log into users accounts before I add to cart
+There should be a workaround because people order things as a guest so I should be able to do that but still not sure what the best way would be
+
+can use the PCID (which is generated and is in the cookies after you add an item to your cart) to view cart so you can use that whether your a guest or a member
+and even if you're not logged in you can see your cart

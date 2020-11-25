@@ -26,3 +26,15 @@ from the cookie
 Once I get the bot working figure out how to incorporate a proxy and how to do tasks 
 so I can get the same program to run as many times as I want which would allow me to
 buy multiple consoles
+
+log each step of the bot checkout in a separate text document so if things go back I can look at the logs and make 
+sure I have the time stated perfectly and everything
+
+when I make a monitor make it run every 30 seconds or so and when the status switches to available run my bot make sure I run it so 
+that my bot only buys the items once or however many times I want to buy. But log each 30 seconds the status so I can see whether 
+the item was released ontime/a couple minutes late/a couple minutes early
+
+
+
+
+

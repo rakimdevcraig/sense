@@ -37,6 +37,10 @@ if item is over $35 in the body of the submitShippingMethod function I have to
 make "shipMethod" "EXPEDITED" because walmart offers free expedited shipping for all 
 orders over $35 and if the order is less I have to make "shipMethod" "STANDARD"
 
+how to get the body of your error request if you want to look at it"
+            console.log(err.response.request.body)
+            
+need to find out how to log just error message also so I don't have to see long error messages with a bunch of info I don't need
 
 
 Need******

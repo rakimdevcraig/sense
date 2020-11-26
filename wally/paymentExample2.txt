@@ -1,0 +1,42 @@
+
+can try to add credit card to account and use "isNew"/"isDefault"
+
+
+This is what gets sent in the credit card payload:
+addressLineOne: "111 Codman Park"
+addressLineTwo: ""
+cardType: "VISA"
+city: "Roxbury"
+encryptedCvv: "978"
+encryptedPan: "4485302233403738"
+expiryMonth: "03"
+expiryYear: "2021"
+firstName: "Winston"
+integrityCheck: "101c50ba65c71b65"
+keyId: "c098383b"
+lastName: "Haag"
+phase: "0"
+phone: "6178251615"
+postalCode: "02119"
+state: "MA"
+
+
+this is the response:
+addressLineOne: "111 Codman Park"
+addressLineTwo: ""
+cardExpiryDate: "2021-03-31"
+cardType: "VISA"
+city: "Roxbury"
+cvvRequired: true
+dbSessionTokenMap: {}
+displayLabel: ""
+displayString: "3738"
+firstName: "Winston"
+id: "0e629232-858b-4cc0-8d43-eba4861b6953"
+isDefault: false
+lastFour: "3738"
+lastName: "Haag"
+phone: "6178251615"
+piHash: "PIH.ccdb.VISA.CREDITCARD.847741415.3738"
+postalCode: "02119"
+state: "MA"

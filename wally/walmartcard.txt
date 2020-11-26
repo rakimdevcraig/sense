@@ -1,0 +1,18 @@
+encryptedCvv: "560"
+encryptedPan: "4556314506885982"
+
+Think these are randomly generated
+integrityCheck: "ce47ad1c08216193"
+keyId: "df583ad6"
+
+
+
+encryptedCvv: "684"
+encryptedPan: "4111112008071111"
+
+Think these are randomly generated
+integrityCheck: "44faa980ddbcaaec"
+keyId: "1aaa324d"
+
+piHash: "PIH.ccdb.VISA.CREDITCARD.847424272.5982"//comes from the response of credit card
+preferenceId: "65a9ce20-75a6-48fd-9b9a-f53e75feff65" comes from the response of credit card

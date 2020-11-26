@@ -1,0 +1,21 @@
+Steps while logged in
+post to https://www.walmart.com/api/v3/cart/guest/:CID/items
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID?page=CHECKOUT_VIEW
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/fulfillment
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/shipping-address
+
+post to https://www.walmart.com/api/checkout-customer/:CID/credit-card
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/payment
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID/order
+payload:
+{"cvvInSession":true,"voltagePayments":[{"paymentType":"CREDITCARD","preferenceId":"1a192b16-30ea-4c7f-a110-7b0716de054b","encryptedCvv":"159","encryptedPan":"4045940065247369","integrityCheck":"2237518c07713716","keyId":"85be2b8d","phase":"1"}]}
+
+As A Guest:
+post to https://www.walmart.com/api/v3/cart/guest/:CID/items
+
+post to https://www.walmart.com/api/checkout/v3/contract/:PCID?page=CHECKOUT_VIEW

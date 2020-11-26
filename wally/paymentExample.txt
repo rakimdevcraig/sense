@@ -1,0 +1,30 @@
+This is what gets sent in the payment payload:
+addressLineOne: "111 Codman Park"
+addressLineTwo: ""
+cardType: "VISA"
+city: "Roxbury"
+encryptedCvv: "971"
+encryptedPan: "4111112302341111"
+expiryMonth: 3
+expiryYear: 2021
+firstName: "Winston"
+integrityCheck: "1b89611d6c17a9aa"
+isNew: true
+keyId: "54fb3f3d"
+lastName: "Haag"
+paymentType: "CREDITCARD"
+phase: "0"
+phone: "6178251615"
+piHash: "PIH.ccdb.VISA.CREDITCARD.847741415.3738"
+postalCode: "02119"
+preferenceId: "0e629232-858b-4cc0-8d43-eba4861b6953"
+state: "MA"
+"cvvInSession":true
+
+
+encryptedPan & cvv are different in both requests 
+integrity check is different in both requests
+phase is 0 in both
+pihash from cc response is same
+id from cc response is the same as preferenceId
+make sure I have payment structured properly it's an array

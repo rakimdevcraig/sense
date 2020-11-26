@@ -1,0 +1,40 @@
+How would I get the bot to run in sequential order without adding 
+an item running before the login happens?
+
+make it return a promise and use async/await
+
+console log my cart, items in it & total: I'll have to look through the different responses i'll probably
+be able to find a good response to log in the add to cart or submit checkout. right now i'm logging 1 item but if i buy more items I won't be logging them
+
+make the bot so that i'm not manually plugging in my crt or customer id in the body of the checkoutcart function
+have to find it in the cookies and save it as a variable so that it can be used globally
+
+for all of the customer data I need such as credit card number, address, email etc I can put all of those into a txt file and have my bot read from the text
+file or put those fields into the bot and have the user input their information because maybe that might have the bot run faster (have to ask mark)
+
+make conditional for "shippingMethod" where if item is over $35 i choose expedited because there's free expedited
+shipping for items over $35 and standard shipping for items under $35
+
+Make sure my messages in the console detailing each step are clear if I need to
+I can use response.statuscode to see what the status code is to design me message
+
+In the checkoutCart request I need to make it so that CRT,customerID and customer type
+come dynamically from the cookie and not me manually putting that in because if I 
+let others use this they wont be able to manually put that in I need to get it 
+from the cookie
+
+Once I get the bot working figure out how to incorporate a proxy and how to do tasks 
+so I can get the same program to run as many times as I want which would allow me to
+buy multiple consoles
+
+log each step of the bot checkout in a separate text document so if things go back I can look at the logs and make 
+sure I have the time stated perfectly and everything
+
+when I make a monitor make it run every 30 seconds or so and when the status switches to available run my bot make sure I run it so 
+that my bot only buys the items once or however many times I want to buy. But log each 30 seconds the status so I can see whether 
+the item was released ontime/a couple minutes late/a couple minutes early
+
+
+
+
+
